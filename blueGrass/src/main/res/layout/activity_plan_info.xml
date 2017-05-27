@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:background="@color/gray"
+    tools:context="com.reeching.bluegrass.PlanInfoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout style="@style/Title_Bar_Style" >
+
+                <TextView
+                    style="@style/Title_Bar_Center_Text_Style"
+                    android:text="展览详情" />
+
+                <TextView
+                    android:id="@+id/comeback"
+                    style="@style/ComeBack" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="vertical" >
+
+                <com.reeching.bluegrass.NoScrollGridView
+                    android:id="@+id/planinfo_lin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:horizontalSpacing="2dp"
+                    android:numColumns="3"
+                    android:scrollbars="none"
+                    android:verticalSpacing="2dp"  >
+                </com.reeching.bluegrass.NoScrollGridView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="展览主题：" />
+
+                    <TextView
+                        android:id="@+id/planinfo_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="画廊名称：" />
+
+                    <TextView
+                        android:id="@+id/planinfo_hualang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="3dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="策展人：" />
+
+                    <EditText
+                        android:id="@+id/planinfo_people"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="请输入策展人"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="3dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="作者：" />
+
+                    <EditText
+                        android:id="@+id/planinfo_zuozhe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:hint="请输入作者"
+                        android:gravity="center"
+                        android:text="" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="展览时间：" />
+
+                    <TextView
+                        android:id="@+id/planinfo_times"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/planinfo_timee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关注等级：" />
+
+                    <ImageView
+                        android:id="@+id/planinfo_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="3dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="策展人简介：" />
+
+                    <EditText
+                        android:id="@+id/planinfo_authorinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:hint="请输入策展人简介"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+                <com.reeching.bluegrass.NoScrollGridView
+                    android:id="@+id/planinfo_lin2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:horizontalSpacing="2dp"
+                    android:numColumns="3"
+                    android:scrollbars="none"
+                    android:verticalSpacing="2dp"  >
+                </com.reeching.bluegrass.NoScrollGridView>
+            </LinearLayout>
+            <Button
+                android:id="@+id/planinfo_report"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/circle_btn"
+                android:gravity="center"
+                android:text="确认修改"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

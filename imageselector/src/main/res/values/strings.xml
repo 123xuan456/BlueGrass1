@@ -1,0 +1,16 @@
+<resources>
+    <string name="folder_name" translatable="false">FolderName</string>
+    <string name="image_num" translatable="false">ImageNum</string>
+    <string name="all_folder" translatable="false">All Images</string>
+    <string name="sheet" translatable="false">sheet</string>
+    <string name="shoot" translatable="false">shoot</string>
+    <string name="picture" translatable="false">picture</string>
+    <string name="finish" translatable="false">finish</string>
+    <string name="temp_date" translatable="false">2015-4-1</string>
+    <string name="msg_no_camera" translatable="false">No system camera found</string>
+    <string name="msg_amount_limit" translatable="false">Select images amount is limit</string>
+    <string name="open_camera_fail" translatable="false">rest</string>
+    <string name="empty_sdcard" translatable="false">nocard</string>
+
+
+</resources>

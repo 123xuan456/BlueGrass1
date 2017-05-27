@@ -1,0 +1,240 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbcg"
+    android:orientation="vertical"
+    tools:context=".CheckHualangActivity" >
+
+    <RelativeLayout style="@style/Title_Bar_Style" >
+
+        <TextView
+            style="@style/Title_Bar_Center_Text_Style"
+            android:text="查看画廊" />
+
+        <TextView
+            android:id="@+id/comeback"
+            style="@style/ComeBack" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/check_hualang_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+
+                android:orientation="vertical">
+
+                <com.baidu.mapapi.map.MapView
+                    android:id="@+id/checkhualang_mapview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true" />
+
+                <Button
+                    android:id="@+id/checkhualang_returnlocation"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="85dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/map_location" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/check_hualang_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+
+                android:hint="无"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_people"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:hint="无"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:hint="无"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:text="类型"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:text="类型"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/alter_hualang_qujian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="5dp"
+
+                android:textSize="16sp" />
+
+            <com.reeching.bluegrass.NoScrollGridView
+                android:id="@+id/check_hualang_lin"
+              android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:horizontalSpacing="2dp"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="2dp" >
+            </com.reeching.bluegrass.NoScrollGridView>
+
+            <EditText
+                android:id="@+id/check_hualang_eplain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edt_shape"
+                android:editable="false"
+                android:gravity="top"
+                android:maxLines="4"
+                android:minLines="4"
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_dutyman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:hint="无"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_aire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:hint="无"
+
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_ddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="10dp"
+                android:hint="无"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_hualang_managetype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="无"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="关注等级："
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/check_hualang_rbtnred"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/redcircle"
+                    android:button="@null" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/check_hualang"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_btn"
+                android:gravity="center"
+                android:text="历史展览"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

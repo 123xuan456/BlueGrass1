@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">艺术区管理</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="title_activity_begin_to_hecha" translatable="false">BeginToHecha</string>
+    <string name="title_activity_map_hua_lang_location" translatable="false">MapHuaLangLocation</string>
+
+    <string-array name="styles_array">
+        <item>有限责任</item>
+        <item>股份有限</item>
+        <item>私营企业</item>
+    </string-array>
+    <string-array name="state_array">
+        <item>歇业中</item>
+        <item>运营中</item>
+    </string-array>
+
+
+    <string name="finish" translatable="false">完成</string>
+    <string name="home_title" translatable="false">朝阳区艺术区管理系统</string>
+    <string name="home" translatable="false">首页</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="album" translatable="false">相册</string>
+    <string name="camera_cancel" translatable="false">取消</string>
+    <string name="no_photo" translatable="false">相册没有图片</string>
+    <string name="only_choose_num" translatable="false">超出可选图片张数</string>
+    <string name="fail" translatable="false">请求失败！</string>
+    <string name="title_activity_login" translatable="false">LoginActivity</string>
+    <string name="title_activity_persion_info" translatable="false">PersionInfoActivity</string>
+    <string name="title_activity_hua_lang_serch" translatable="false">HuaLangSerchActivity</string>
+    <string name="title_activity_alter_hualang" translatable="false">AlterHualangActivity</string>
+    <string name="title_activity_check_hualang" translatable="false">CheckHualangActivity</string>
+    <string name="title_activity_hualang_history" translatable="false">HualangHistoryActivity</string>
+    <string name="title_activity_history_info" translatable="false">HistoryInfoActivity</string>
+    <string name="title_activity_sp" translatable="false">SpActivity</string>
+    <string name="title_activity_dialog" translatable="false">MainActivity</string>
+    <string name="title_activity_showing_info" translatable="false">ShowingInfoActivity</string>
+
+</resources>

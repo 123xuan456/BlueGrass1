@@ -1,0 +1,259 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbcg"
+    android:orientation="vertical"
+    tools:context=".BeginToHecha" >
+
+    <RelativeLayout style="@style/Title_Bar_Style" >
+
+        <TextView
+            style="@style/Title_Bar_Center_Text_Style"
+            android:text="开始核查" />
+        <TextView
+            android:id="@+id/comeback"
+            style="@style/ComeBack" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" >
+
+                <TextView
+                    android:id="@+id/begintohecha_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/begintohecha_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/begintohecha_aire"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="策展人：" />
+
+                    <TextView
+                        android:id="@+id/begintohecha_people"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="举办周期：" />
+
+                    <TextView
+                        android:id="@+id/begintohecha_times"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/begintohecha_timee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关注等级："
+                        android:textColor="@color/blue" />
+
+                    <ImageView
+                        android:id="@+id/begintohecha_iv"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:src="@drawable/red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="展览概要：" />
+
+                    <TextView
+                        android:id="@+id/begintohecha_introduction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.reeching.bluegrass.NoScrollGridView
+                android:id="@+id/begintohecha_lin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:horizontalSpacing="2dp"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="2dp" >
+             </com.reeching.bluegrass.NoScrollGridView>
+
+            <EditText
+                android:id="@+id/begintohecha_history_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/edt_shape"
+                android:editable="false"
+                android:gravity="start"
+                android:hint="检查不符合要求"
+                android:maxLines="3"
+                android:minLines="3"
+                android:visibility="gone" />
+
+            <com.reeching.bluegrass.NoScrollGridView
+                android:id="@+id/activity_begintohecha_share_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:horizontalSpacing="2dp"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="2dp" >
+            </com.reeching.bluegrass.NoScrollGridView>
+
+            <TextView
+                android:id="@+id/begintohecha_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/edt_shape"
+                android:hint="备注"
+                android:minLines="3"
+                android:padding="5dp" />
+
+            <EditText
+                android:id="@+id/begintohecha_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/edt_shape"
+                android:gravity="start"
+                android:hint="再次输入检查情况"
+                android:maxLines="3"
+                 android:textSize="14sp"
+                android:minLines="3"
+                android:padding="5dp" />
+
+            <RadioGroup
+                android:id="@+id/begintohecha_rgp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/begintohecha_rbt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="合格" />
+
+                <RadioButton
+                    android:id="@+id/begintohecha_rbt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="不合格" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/begintohecha_btn"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_btn"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

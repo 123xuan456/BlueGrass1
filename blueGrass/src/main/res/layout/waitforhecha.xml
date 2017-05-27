@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/itembcg"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/waitforhecha_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/waitforhecha_tv0"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforhecha_tv1"
+        android:layout_marginTop="15dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/waitforhecha_tv2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforhecha_tv0"
+        android:layout_marginTop="15dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/waitforhecha_tv4"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/waitforhecha_tv1"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/circle_btn"
+        android:padding="5dp"
+        android:text="开始核查"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/waitforhecha_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforhecha_tv2"
+        android:layout_marginTop="15dp"
+        android:text="关注等级："
+        android:textColor="@color/blue" />
+
+    <ImageView
+        android:id="@+id/waitforhecha_iv"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignTop="@+id/waitforhecha_tv3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@+id/waitforhecha_tv3"
+        android:src="@drawable/red" />
+
+    <TextView
+        android:id="@+id/waitforhecha_tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforhecha_tv3"
+        android:layout_marginTop="10dp"
+        android:text="检查时间" />
+
+    <TextView
+        android:id="@+id/waitforhecha_tv7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforhecha_tv3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/waitforhecha_tv6"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/waitforhecha_tv5"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/waitforhecha_tv3"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/circle_btn"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="到这去"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

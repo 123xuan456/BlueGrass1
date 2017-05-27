@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#00FF00</color>
+    <color name="gray">#ECECEC</color>
+    <color name="blue">#487AB7</color>
+    <color name="red">#E85643</color>
+    <color name="yellow">#F3C500</color>
+    <color name="title_bar_background">#00335BB0</color>
+    <color name="darkgray">#8A8271</color>
+    <color name="one">#00D7C3</color>
+    <color name="two">#4C81C7</color>
+    <color name="three">#4EC7EB</color>
+    <color name="four">#BFD34C</color>
+    <color name="five">#FFCF2E</color>
+    <color name="six">#FBA126</color>
+    <color name="seven">#E38393</color>
+    <color name="select">#8B2252</color>
+    <color name="textColor">#7b7b7b</color>
+    <color name="equip_color">#0068b7</color>
+    <color name="tab_color">#59c3e2</color>
+    <color name="fish_color">#0068b7</color>
+    <color name="leavelBlue">#0075a9</color>
+    <color name="home_bg">#E1E0DE</color>
+
+    <!-- 选中的文字颜色 -->
+    <!-- 上传图片添加的颜色 -->
+    <color name="none_color">#00000000</color>
+    <color name="plugin_camera_black">#000000</color>
+    <color name="albumback">#E1E0DE</color>
+    <color name="style_red">#ff4c41</color>
+    <color name="style_divider_color">#C9C7CD</color>
+    <!-- 登陆框 -->
+    <color name="text_hint_color">#ffc4c4c4</color>
+    <color name="blue_common">#ff2ea7e0</color>
+
+</resources>

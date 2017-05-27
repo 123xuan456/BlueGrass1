@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/itembcg"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/waitforcheck_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/waitforcheck_tv6"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforcheck_tv1"
+        android:layout_marginTop="15dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/waitforcheck_tv2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforcheck_tv6"
+        android:layout_marginTop="15dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="2" />
+
+    <TextView
+        android:id="@+id/waitforcheck_tv4"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/waitforcheck_tv1"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/circle_btn"
+        android:padding="5dp"
+        android:text="开始检查"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/waitforcheck_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/waitforcheck_tv2"
+        android:layout_marginTop="15dp"
+        android:text="关注等级："
+        android:textColor="@color/blue" />
+
+    <ImageView
+        android:id="@+id/waitforcheck_iv"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignTop="@+id/waitforcheck_tv3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@+id/waitforcheck_tv3"
+        android:src="@drawable/red" />
+
+    <TextView
+        android:id="@+id/waitforcheck_tv5"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/waitforcheck_tv4"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/circle_btn"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="到这去"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

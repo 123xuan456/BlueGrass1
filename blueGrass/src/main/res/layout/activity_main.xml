@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/loginbcg"
+    tools:context=".MainActivity" >
+
+   
+
+    <com.reeching.utils.MyViewPager
+        android:id="@+id/act_framelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+       
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbtn_report"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bcg_foot"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/report"
+            android:gravity="bottom|center_horizontal"
+            android:padding="3dp"
+            android:text="上报"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_anjian"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bcg_foot"
+            android:button="@null"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/anjian"
+            android:gravity="bottom|center_horizontal"
+            android:padding="3dp"
+            android:text="案件"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_hualang"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bcg_foot"
+            android:button="@null"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/hualang"
+            android:gravity="bottom|center_horizontal"
+            android:padding="3dp"
+            android:text="画廊"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bcg_foot"
+            android:button="@null"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/mine"
+            android:gravity="bottom|center_horizontal"
+            android:padding="3dp"
+            android:text="我的"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+</LinearLayout>

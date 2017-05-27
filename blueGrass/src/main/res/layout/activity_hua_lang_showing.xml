@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_hua_lang_showing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.reeching.bluegrass.HuaLangShowingActivity">
+
+
+    <RelativeLayout style="@style/Title_Bar_Style" >
+
+        <TextView
+            style="@style/Title_Bar_Center_Text_Style"
+            android:text="正在展览" />
+
+        <TextView
+            android:id="@+id/comeback"
+            style="@style/ComeBack"/>
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/Hualang_showing_lv"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent" >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+</LinearLayout>

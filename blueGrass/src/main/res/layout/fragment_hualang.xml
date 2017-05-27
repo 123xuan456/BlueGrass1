@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/Title_Bar_Style" >
+
+        <TextView
+            style="@style/Title_Bar_Center_Text_Style"
+            android:text="画廊" />
+
+        <ImageView
+            android:id="@+id/fragment_hualang_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/add" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/fragment_hualang_radiogroups"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/fragment_hualang_maprbt"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bck_title"
+            android:button="@null"
+            android:gravity="center"
+            android:text="地图"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/fragmet_hualang_listrbt"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bck_title"
+            android:button="@null"
+            android:gravity="center"
+            android:text="列表"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <com.reeching.utils.MyViewPager
+        android:id="@+id/fragment_hualang"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

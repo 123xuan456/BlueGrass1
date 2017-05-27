@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name" translatable="false">Library</string>
+    <!-- 相册 -->
+    <string name="photo_num" translatable="false">(%1$d)</string>
+    <string name="photo_folder_select" translatable="false">选择相册</string>
+    <string name="photo_select" translatable="false">选择照片</string>
+    <string name="photo_ok" translatable="false">确定(%1$d)</string>
+    <string name="photo_preview" translatable="false">预览</string>
+    <string name="photo_no_select" translatable="false">您还没选择照片</string>
+    <string name="photo_to_choose" translatable="false">选择</string>
+
+    <string name="select_ok" translatable="false">确认</string>
+
+
+    <string name="publish_select_photo_max" translatable="false">您最多只能选%1$d张图片</string>
+
+    <string name="common_large_image_title" translatable="false">%1$d/%2$d</string>
+</resources>

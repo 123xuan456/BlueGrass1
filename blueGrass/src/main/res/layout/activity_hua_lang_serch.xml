@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbcg"
+    android:orientation="vertical"
+    tools:context=".HuaLangSerchActivity" >
+
+    <RelativeLayout style="@style/Title_Bar_Style" >
+
+        <TextView
+            style="@style/Title_Bar_Center_Text_Style"
+            android:text="画廊查询" />
+
+        <TextView
+            android:id="@+id/comeback"
+            style="@style/ComeBack" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/hualangserch_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edt_shape"
+        android:hint="请输入单位/画廊"
+        android:padding="5dp" />
+
+    <ListView
+        android:id="@+id/hualangserch_lv"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+         >
+    </ListView>
+
+</LinearLayout>

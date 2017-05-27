@@ -1,0 +1,296 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbcg"
+    android:orientation="vertical"
+    tools:context=".AlterHualangActivity" >
+
+    <RelativeLayout style="@style/Title_Bar_Style" >
+
+        <TextView
+            style="@style/Title_Bar_Center_Text_Style"
+            android:text="修改画廊" />
+
+        <TextView
+            android:id="@+id/comeback"
+            style="@style/ComeBack" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/gray" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/alter_hualang_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入单位/画廊名称"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <com.baidu.mapapi.map.MapView
+                    android:id="@+id/map_alterhualang_mapview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="400dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true" />
+
+                <Button
+                    android:id="@+id/map_alterhualang_returnlocation"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="85dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/map_location" />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/alter_hualang_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:padding="5dp"
+                android:text="朝阳区东大桥路119号"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_people"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入负责人"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入电话"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/alter_hualang_qujian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请选择区域"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/alter_hualang_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请选择企业类型"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/alter_hualang_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请选择运营状态"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <com.reeching.bluegrass.NoScrollGridView
+                    android:id="@+id/alter_hualang_lin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:columnWidth="90dp"
+                    android:horizontalSpacing="10dp"
+                    android:numColumns="3"
+                    android:padding="5dp"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="10dp" >
+                </com.reeching.bluegrass.NoScrollGridView>
+            </LinearLayout>
+
+            <com.reeching.bluegrass.NoScrollGridView
+                android:id="@+id/alter_hualang_share_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:horizontalSpacing="2dp"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="2dp" >
+            </com.reeching.bluegrass.NoScrollGridView>
+
+            <EditText
+                android:id="@+id/alter_hualang_explain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="概要说明"
+                android:maxLines="4"
+                android:minLines="4"
+                android:padding="5dp"
+                android:scrollbars="vertical"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_dutyman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入法定代表人"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入面积"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入风格"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_ddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入注册地址"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_managetype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入经营类新"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/alter_hualang_livetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="入住时间"
+                android:focusable="false"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="关注等级："
+                    android:textSize="16sp" />
+
+                <RadioGroup
+                    android:id="@+id/alter_hualang_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/alter_hualang_rbtnred"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/redcircle"
+                        android:button="@null"
+                        android:gravity="center" />
+
+                    <RadioButton
+                        android:id="@+id/alter_hualang_rbtnyellow"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/yellowcircle"
+                        android:button="@null"
+                        android:gravity="center" />
+
+                    <RadioButton
+                        android:id="@+id/alter_hualang_rbtn_green"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/greencircle"
+                        android:button="@null"
+                        android:gravity="center" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/alter_hualang_alter"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_btn"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

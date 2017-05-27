@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/frament_bdmapView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true" />
+
+        <com.reeching.bluegrass.MyEditText
+            android:id="@+id/fragment_map_met"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:editable="false"
+            android:background="@drawable/edt_shape"
+            android:drawableLeft="@drawable/serch"
+            android:drawablePadding="2dp"
+            android:drawableRight="@drawable/hide"
+            android:hint="请输入要查询信息"
+            android:maxLines="1"
+            android:padding="5dp" />
+
+        <ImageView
+            android:id="@+id/fragment_map_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/visible"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/frament_returnlocation"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="85dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/map_location" />
+
+        <LinearLayout
+            android:id="@+id/fragment_map_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="#CC4e5a6b"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/fragment_map_alter"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/lvitembcg"
+                android:gravity="center"
+                android:text="修改画廊信息" />
+
+            <TextView
+                android:id="@+id/fragment_map_gothere"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/lvitembcg"
+                android:gravity="center"
+                android:text="到这去" />
+
+            <TextView
+                android:id="@+id/fragment_map_view"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/lvitembcg"
+                android:gravity="center"
+                android:text="查看画廊信息" />
+
+            <TextView
+                android:id="@+id/fragment_map_report"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/lvitembcg"
+                android:gravity="center"
+                android:text="添加画廊信息" />
+
+            <TextView
+                android:id="@+id/fragment_map_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/lvitembcg"
+                android:gravity="center"
+                android:text="删除画廊信息" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

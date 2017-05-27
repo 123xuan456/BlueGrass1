@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/detailreport_myedittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/edt_shape"
+                android:drawableRight="@drawable/query"
+                android:editable="false"
+
+                android:hint="请输入单位/画廊(必填项)"
+                android:padding="5dp"
+                android:textColorHint="@color/blue"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/detailreport_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入主题(必填项)"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/detailreport_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:editable="false"
+                android:hint="===请选择展览状态===(必填项)"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/detailreport_starttime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:drawableRight="@drawable/calendar"
+                android:editable="false"
+                android:hint="===请选择展览开始时间===(必填项)"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/detailreport_endtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:drawableRight="@drawable/calendar"
+                android:editable="false"
+                android:hint="===请选择展览结束时间===(必填项)"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="关注等级：(必填项)"
+                    android:textColor="@color/blue" />
+
+                <RadioGroup
+                    android:id="@+id/detailreport_rgroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/detailreport_rbtn1"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/redcircle"
+                        android:button="@null"
+                        android:gravity="center" />
+
+                    <RadioButton
+                        android:id="@+id/detailreport_rbtn2"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/yellowcircle"
+                        android:button="@null"
+                        android:gravity="center" />
+
+                    <RadioButton
+                        android:id="@+id/detailreport_rbtn3"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/greencircle"
+                        android:button="@null"
+                        android:gravity="center" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/detailreport_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入作者(选填项)"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/detailreport_authorshuoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:gravity="start"
+                android:hint="作者介绍(选填项)"
+                android:maxLines="4"
+                android:minLines="4"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <com.reeching.bluegrass.NoScrollGridView
+                android:id="@+id/share_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:horizontalSpacing="2dp"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="2dp"></com.reeching.bluegrass.NoScrollGridView>
+
+            <EditText
+                android:id="@+id/detailreport_cehuapeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入策展人(选填项)"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/detailreport_cehuashuoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:gravity="start"
+                android:hint="策展人简介(选填项)"
+                android:maxLines="4"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/detailreport_gaiyao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:gravity="start"
+                android:hint="展览概要(选填项)"
+                android:maxLines="4"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/detailreport_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="请输入巡查内容(选填项)"
+                android:maxLines="4"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/detailreport_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/edt_shape"
+                android:hint="备注信息(选填项)"
+                android:padding="5dp"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/detailreport_report"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="30dp"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/circle_btn"
+                    android:gravity="center"
+                    android:text="提交"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <Button
+                    android:id="@+id/detailreport_rest"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="30dp"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/circle_btn"
+                    android:gravity="center"
+                    android:text="重置"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbcg"
+    android:orientation="vertical"
+    tools:context=".PersionInfoActivity" >
+
+    <RelativeLayout style="@style/Title_Bar_Style" >
+
+        <TextView
+            style="@style/Title_Bar_Center_Text_Style"
+            android:text="个人信息" />
+
+        <TextView
+            android:id="@+id/comeback"
+            style="@style/ComeBack" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/persioninfo_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名:" />
+
+            <TextView
+                android:id="@+id/persioninfo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/persioninfo_username"
+                android:text="" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/persioninfo_userphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电话:" />
+
+            <TextView
+                android:id="@+id/persioninfo_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/persioninfo_userphone"
+                android:text="" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <com.baidu.mapapi.map.MapView
+                android:id="@+id/map_persioninfo_location_mapview"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="5dp"
+                android:clickable="true" />
+
+            <Button
+                android:id="@+id/map_persioninfo_location_returnlocation"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="20dp"
+                android:background="@drawable/map_location" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/persioninfo_dutyaire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="负责区域:" />
+
+            <TextView
+                android:id="@+id/persioninfo_aire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/persioninfo_dutyaire"
+                android:text="" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
