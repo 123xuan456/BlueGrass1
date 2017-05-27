@@ -68,7 +68,7 @@ import com.yancy.imageselector.ImageSelectorFragment;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+//上报页面
 public class ReportDetailFragment extends Fragment implements ImageSelectorFragment.SelectorFragment {
     /**
      * pop窗口

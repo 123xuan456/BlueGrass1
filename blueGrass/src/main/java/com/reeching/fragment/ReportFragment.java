@@ -1,11 +1,7 @@
 package com.reeching.fragment;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +12,9 @@ import com.reeching.adapter.MyFragmentPagerAdapter;
 import com.reeching.bluegrass.R;
 import com.reeching.utils.MyViewPager;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+//上报页面
 public class ReportFragment extends Fragment {
 
 	private ReportedDetailFagment mReportedDetailFagment;
@@ -65,8 +64,8 @@ public class ReportFragment extends Fragment {
 				.findViewById(R.id.viewvager_reportdetail);
 		mPager.setCanScrollble(false);
 		fragmentsList = new ArrayList<Fragment>();
-		mReportDetailFragment = new ReportDetailFragment();
-		mReportedDetailFagment = new ReportedDetailFagment();
+		mReportDetailFragment = new ReportDetailFragment();//上报
+		mReportedDetailFagment = new ReportedDetailFagment();//已上报
 
 		fragmentsList.add(mReportDetailFragment);
 		fragmentsList.add(mReportedDetailFagment);
