@@ -30,7 +30,6 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.reeching.bluegrass.MyOrientaionListener.OnOrientationListener;
-import com.reeching.utils.ExitApplication;
 
 public class PersionInfoActivity extends Activity {
 	MapView mMapView = null;
@@ -54,7 +53,6 @@ public class PersionInfoActivity extends Activity {
 		SDKInitializer.initialize(this.getApplicationContext());
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_persion_info);
-		 ExitApplication.getInstance().addActivity(this);
 		lat = Double.valueOf(getIntent().getStringExtra("lat"));
 		lng = Double.valueOf(getIntent().getStringExtra("lng"));
 		btn = (Button) findViewById(R.id.map_persioninfo_location_returnlocation);

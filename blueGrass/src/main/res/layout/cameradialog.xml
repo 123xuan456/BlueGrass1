@@ -3,6 +3,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@color/white"
               android:paddingTop="30dp"
               android:paddingBottom="30dp"
               android:paddingLeft="40dp"
@@ -20,11 +21,13 @@
             android:id="@+id/radiobutton_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="标清图片（推荐）"/>
         <RadioButton
             android:id="@+id/radiobutton_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="高清原图"/>
     </RadioGroup>
 
@@ -43,11 +46,13 @@
             android:id="@+id/radiobutton_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="正常图片"/>
         <RadioButton
             android:id="@+id/radiobutton_four"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="问题作品"/>
     </RadioGroup>
 

@@ -1,27 +1,20 @@
 package com.reeching.bluegrass;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,12 +52,10 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.bean.AlterHualngBean;
 import com.reeching.bluegrass.MyOrientaionListener.OnOrientationListener;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,11 +109,9 @@ public class CheckHualangActivity extends Activity {
         SDKInitializer.initialize(this.getApplicationContext());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_check_hualang);
-        ExitApplication.getInstance().addActivity(this);
         tvname = (TextView) findViewById(R.id.check_hualang_name);
         tvlocation = (TextView) findViewById(R.id.check_hualang_location);
         comeback = (TextView) findViewById(R.id.comeback);
-        BaseApplication.getInstance().listSelectBitmaps.clear();
         tvpeople = (TextView) findViewById(R.id.check_hualang_people);
         tvphone = (TextView) findViewById(R.id.check_hualang_phone);
         eteplain = (EditText) findViewById(R.id.check_hualang_eplain);
@@ -250,7 +239,7 @@ public class CheckHualangActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if ( BaseApplication.getInstance().listSelectBitmaps.get(position)!= null) {
+                if ( list.get(position)!= null) {
                     Intent intent = new Intent(CheckHualangActivity.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -262,41 +251,6 @@ public class CheckHualangActivity extends Activity {
                 }
             }
         });
-//        lin.setOnItemClickListener(new OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-//                                    long arg3) {
-//                // TODO Auto-generated method stub
-//                LayoutInflater inflater = LayoutInflater
-//                        .from(CheckHualangActivity.this);
-//                View imgEntryView = inflater.inflate(R.layout.dialog, null); // 加载自定义的布局文件
-//                final AlertDialog dialog = new AlertDialog.Builder(
-//                        CheckHualangActivity.this).create();
-//                ImageView img = (ImageView) imgEntryView
-//                        .findViewById(R.id.large_image);
-//
-//                // 加载网络图片
-//                Picasso.with(CheckHualangActivity.this)
-//                        .load(HttpApi.picip + list.get(arg2))
-//                        .resize(900, 900)
-//                        .placeholder(R.drawable.downing)              //添加占位图片
-//                        .error(R.drawable.error)
-//                        .config(Bitmap.Config.RGB_565)
-//                        .centerInside()
-//                        .into(img);
-//
-//                // 这个是加载网络图片的，可以是自己的图片设置方法
-//                dialog.setView(imgEntryView); // 自定义dialog
-//                dialog.show();
-//                // 点击布局文件（也可以理解为点击大图）后关闭dialog，这里的dialog不需要按钮
-//                imgEntryView.setOnClickListener(new OnClickListener() {
-//                    public void onClick(View paramView) {
-//                        dialog.cancel();
-//                    }
-//                });
-//            }
-//        });
 
 
     }
@@ -345,24 +299,7 @@ public class CheckHualangActivity extends Activity {
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-                    .into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                            imageView.setImageBitmap(bitmap);
-                            BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.error);
-                        }
-
-                        @Override
-                        public void onPrepareLoad(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.downing);
-
-                        }
-                    });
+                    .into(imageView);
             handler.sendEmptyMessage(22);
             return imageView;
         }

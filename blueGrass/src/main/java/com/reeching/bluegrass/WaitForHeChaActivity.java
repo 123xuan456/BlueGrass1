@@ -1,9 +1,9 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,10 +17,9 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.adapter.HechaAdapter;
 import com.reeching.bean.HechaInfobean;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 
-public class WaitForHeChaActivity extends AppCompatActivity {
+public class WaitForHeChaActivity extends Activity {
     private ListView lv;
     private HechaInfobean infobean;
     private HechaAdapter adapter;
@@ -38,7 +37,6 @@ public class WaitForHeChaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait_for_he_cha);
-        ExitApplication.getInstance().addActivity(this);
         lv = (ListView) findViewById(R.id.fragment_waitforhecha_lv);
         TextView comeBack
                 = (TextView) findViewById(R.id.comeback);

@@ -36,7 +36,6 @@ import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.reeching.bluegrass.MyOrientaionListener.OnOrientationListener;
-import com.reeching.utils.ExitApplication;
 
 public class GoHere extends Activity {
 	MapView mMapView = null;
@@ -61,7 +60,6 @@ public class GoHere extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		SDKInitializer.initialize(this.getApplicationContext());
 		setContentView(R.layout.activity_go_here);
-		 ExitApplication.getInstance().addActivity(this);
 		btn = (Button) findViewById(R.id.returnlocation);
 		btnroad = (Button) findViewById(R.id.start_btn);
 		mMapView = (MapView) findViewById(R.id.bmapView);

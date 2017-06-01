@@ -21,7 +21,6 @@ import com.reeching.fragment.HualangFragment;
 import com.reeching.fragment.MineFragment;
 import com.reeching.fragment.ReportDetailFragment;
 import com.reeching.fragment.ReportFragment;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.MyViewPager;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
@@ -59,7 +58,7 @@ public class MainActivity extends BaseFragment {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        ExitApplication.getInstance().addActivity(this);
+
         setContentView(R.layout.activity_main);
         rbt1 = (RadioButton) findViewById(R.id.rbtn_report);
         rbt2 = (RadioButton) findViewById(R.id.rbtn_anjian);
@@ -165,12 +164,6 @@ public class MainActivity extends BaseFragment {
         }
         return bitmapByte;
     }
-
-
-
-
-
-
     private void InitViewPager() {
         mPager = (MyViewPager) findViewById(R.id.act_framelayout);
         mPager.setCanScrollble(false);

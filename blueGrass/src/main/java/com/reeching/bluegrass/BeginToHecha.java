@@ -23,9 +23,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -51,7 +49,6 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.adapter.GlideLoader;
 import com.reeching.bean.HechaInfobean.Infos;
 import com.reeching.utils.BitmapUtils;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -59,8 +56,6 @@ import com.yancy.imageselector.ImageConfig;
 import com.yancy.imageselector.ImageSelector;
 import com.yancy.imageselector.ImageSelectorActivity;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -145,8 +140,6 @@ public class BeginToHecha extends Activity {
         Log.d("shuaishuai", "onCreate: ");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_begin_to_hecha);
-        ExitApplication.getInstance().addActivity(this);
-        BaseApplication.getInstance().listSelectBitmaps.clear();
         BimpHandler.tempSelectBitmap.clear();
         tvtheme = (TextView) findViewById(R.id.begintohecha_theme);
         gv_share_photo = (NoScrollGridView) findViewById(R.id.activity_begintohecha_share_photo);
@@ -302,7 +295,7 @@ public class BeginToHecha extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if ( BaseApplication.getInstance().listSelectBitmaps.get(position) != null&& BaseApplication.getInstance().listSelectBitmaps.size() == list.size()) {
+                if (list.get(position) != null) {
                     Intent intent = new Intent(BeginToHecha.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -633,25 +626,7 @@ public class BeginToHecha extends Activity {
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-                    .into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                            imageView.setImageBitmap(bitmap);
-                            BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
-
-
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.error);
-                        }
-
-                        @Override
-                        public void onPrepareLoad(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.downing);
-                        }
-                    });
+                    .into(imageView);
 
             mHandler.sendEmptyMessage(0);
             return imageView;

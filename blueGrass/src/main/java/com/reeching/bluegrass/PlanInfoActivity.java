@@ -1,5 +1,6 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -7,21 +8,16 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -46,23 +42,19 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.adapter.GlideLoader;
 import com.reeching.bean.HuaLangShowing;
 import com.reeching.utils.BitmapUtils;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 import com.yancy.imageselector.ImageConfig;
 import com.yancy.imageselector.ImageSelector;
 import com.yancy.imageselector.ImageSelectorActivity;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class PlanInfoActivity extends AppCompatActivity {
+public class PlanInfoActivity extends Activity {
     private HuaLangShowing.Infos infos;
     private TextView tvtheme, tvtimes, tvtimee,
             comeback;
@@ -138,8 +130,6 @@ public class PlanInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_plan_info);
-        ExitApplication.getInstance().addActivity(this);
-        BaseApplication.getInstance().listSelectBitmaps.clear();
         BimpHandler.tempSelectBitmap.clear();
         infos = (HuaLangShowing.Infos) getIntent().getSerializableExtra("info");
         lin = (NoScrollGridView) findViewById(R.id.planinfo_lin);
@@ -169,7 +159,7 @@ public class PlanInfoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if ( BaseApplication.getInstance().listSelectBitmaps.get(position) != null&& BaseApplication.getInstance().listSelectBitmaps.size() == list.size()) {
+                if ( list.get(position) != null) {
                     Intent intent = new Intent(PlanInfoActivity.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -241,27 +231,7 @@ public class PlanInfoActivity extends AppCompatActivity {
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-                    .into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-
-
-                            imageView.setImageBitmap(bitmap);
-                            BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
-                          mHandler.sendEmptyMessage(11);
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.error);
-
-                        }
-
-                        @Override
-                        public void onPrepareLoad(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.downing);
-                        }
-                    });
+                    .into(imageView);
 
 
             return imageView;

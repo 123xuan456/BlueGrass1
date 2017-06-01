@@ -1,10 +1,10 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.reeching.utils.HackyViewPager;
 
-public class PicViewActivityTemp extends AppCompatActivity {
+public class PicViewActivityTemp extends Activity {
 
     private HackyViewPager viewPager;//声明ViewPager
     //创建数据源，这里采用本地数据源

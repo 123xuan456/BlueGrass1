@@ -13,11 +13,24 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    //设置每次运行的时候自带签名文件
+    signingConfigs{
+        key{
+            storeFile file("D:/abc/reeching/BlueGrass1/jks.jks")
+            storePassword "reeching"
+            keyAlias "chn"
+            keyPassword "reeching"
+        }
 
+    }
     buildTypes {
         release {
+            signingConfig  signingConfigs.key
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        debug{
+            signingConfig  signingConfigs.key
         }
     }
 }

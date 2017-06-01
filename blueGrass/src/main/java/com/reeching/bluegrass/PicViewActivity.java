@@ -49,10 +49,11 @@ public class PicViewActivity extends Activity {
         setContentView(R.layout.activity_pic_view);
         viewPager = (HackyViewPager) findViewById(R.id.viewPager);
         Intent intent = getIntent();
+        url = intent.getStringArrayListExtra("url");
         adapter = new MyAdapter();
         viewPager.setAdapter(adapter);
         int id = intent.getIntExtra("ID", 0);
-        url = intent.getStringArrayListExtra("url");
+
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -62,7 +63,7 @@ public class PicViewActivity extends Activity {
             public void onPageSelected(int position) {
                 int childCount = viewPager.getChildCount();//viewPager得到页面的数量
                 // 遍历当前所有加载过的PhotoView，恢复所有图片的默认状态
-                for (int i = 0; i < childCount; i++) {
+                for (int i = 0; i <childCount; i++) {
                     View childAt = viewPager.getChildAt(i);
                     try {
                         if (childAt != null && childAt instanceof PhotoView) {
@@ -89,45 +90,21 @@ public class PicViewActivity extends Activity {
 
         @Override
         public int getCount() {
-            return  BaseApplication.getInstance().listSelectBitmaps.size();
-
+            return  url==null?0:url.size();
         }
 
         @Override
         public View instantiateItem(ViewGroup container, int position) {
             PhotoView photoView = new PhotoView(container.getContext());
             container.addView(photoView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-
-//           final ImageView imgview =new ImageView(PicViewActivity.this);
-//            Picasso.with(PicViewActivity.this)
-//                    .load(HttpApi.picip + url.get(position))
-//                    .resize(900, 900)
-//                    .placeholder(R.drawable.downing)              //添加占位图片
-//                    .error(R.drawable.error)
-//                    .config(Bitmap.Config.RGB_565)
-//                    .centerInside()
-//                    .into(new Target() {
-//                        @Override
-//                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-//                            imgview.setImageBitmap(bitmap);
-//                            mmhandler.sendEmptyMessage(000);
-//                        }
-//
-//                        @Override
-//                        public void onBitmapFailed(Drawable drawable) {
-//                            imgview.setImageResource(R.drawable.error);
-//                        }
-//
-//                        @Override
-//                        public void onPrepareLoad(Drawable drawable) {
-//                            imgview.setImageResource(R.drawable.downing);
-//
-//                        }
-//                    });
-//            imgview.buildDrawingCache();
-//            Log.d("error",url.size()+""+BaseApplication.getInstance().listSelectBitmaps.size());
-//            Bitmap bmp= ((BitmapDrawable)imgview.getDrawable()).getBitmap();
-            photoView.setImageBitmap(BaseApplication.getInstance().listSelectBitmaps.get(position));
+            Picasso.with(PicViewActivity.this)
+                    .load(HttpApi.picip + url.get(position))
+                    .resize(900, 900)
+                    .placeholder(R.drawable.downing)              //添加占位图片
+                    .error(R.drawable.error)
+                    .config(Bitmap.Config.RGB_565)
+                    .centerInside()
+                    .into(photoView);
             photoView.setScaleType(ImageView.ScaleType.FIT_CENTER);//设置图片显示为充满全屏
             return photoView;
         }

@@ -77,7 +77,6 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.adapter.GlideLoader;
 import com.reeching.bluegrass.MyOrientaionListener.OnOrientationListener;
 import com.reeching.utils.BitmapUtils;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.yancy.imageselector.ImageConfig;
 import com.yancy.imageselector.ImageSelector;
@@ -182,11 +181,10 @@ public class AddHualangLocation extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		SDKInitializer.initialize(this.getApplicationContext());
-		BaseApplication.getInstance().listSelectBitmaps.clear();
 		BimpHandler.tempSelectBitmap.clear();
 		setContentView(R.layout.activity_add_hua_lang);
 		BaseApplication.getInstance().setInitflag(true);
-		ExitApplication.getInstance().addActivity(this);
+
 		BimpHandler.tempSelectBitmap.clear();
 		comeback = (TextView) findViewById(R.id.comeback);
 		gv_share_photo = (NoScrollGridView) findViewById(R.id.activity_addhualang_share_photo);

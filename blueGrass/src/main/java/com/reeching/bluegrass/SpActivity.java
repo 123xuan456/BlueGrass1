@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
@@ -19,18 +18,16 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.activity.HomeActivity;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.reeching.utils.SPUtil;
 import com.reeching.utils.UpdateAppManager;
-import com.reeching.utils.UserDao;
 
 public class SpActivity extends Activity {
 	private String name, psd;
 	private boolean flag;
 	private String murl;
-	UserDao userdao;
-	Cursor cur;
+//	UserDao userdao;
+//	Cursor cur;
 	private HttpUtils hu = new HttpUtils();
 	private UpdateAppManager updateManager;
 	private String version = BaseApplication.getInstance().getVersonnum();
@@ -42,8 +39,8 @@ public class SpActivity extends Activity {
 			} else {
 				startActivity(new Intent(SpActivity.this, LoginActivity.class));
 			}
-			SpActivity.this.finish();
-		};
+			finish();
+		}
 	};
 
 	@Override
@@ -51,12 +48,12 @@ public class SpActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_sp);
-		ExitApplication.getInstance().addActivity(this);
 		name = SPUtil.getUserSP(this);
 		psd = SPUtil.getPassSP(this);
-		userdao = UserDao.getInstance(SpActivity.this);
-		cur = userdao.queryUserList();
+//		userdao = UserDao.getInstance(SpActivity.this);
+//		cur = userdao.queryUserList();
 		updata();
+
 	}
 
 	private void login() {
@@ -91,7 +88,7 @@ public class SpActivity extends Activity {
 							BaseApplication.getInstance().setLoginName(name);
 							BaseApplication.getInstance().setId(jsonObject.getString("userId"));
 							flag = true;
-								handler.sendEmptyMessageDelayed(0, SPLASH_TIME);
+							handler.sendEmptyMessageDelayed(0, SPLASH_TIME);
 						} else {
 							flag = false;
 							handler.sendEmptyMessageDelayed(0, SPLASH_TIME);
@@ -138,7 +135,7 @@ public class SpActivity extends Activity {
 										startActivity(new Intent(
 												SpActivity.this,
 												LoginActivity.class));
-										SpActivity.this.finish();
+										finish();
 									}
 								});
 						builder.show();
@@ -156,8 +153,8 @@ public class SpActivity extends Activity {
 									SpActivity.this);
 							updateManager.checkUpdateInfo();
 						} else {
-
-							initdate();
+							login();
+						//	initdate();
 						}
 					}
 				});
@@ -181,10 +178,14 @@ public class SpActivity extends Activity {
 								JSONObject.class);
 						Toast.makeText(SpActivity.this, "更新数据完成！", Toast.LENGTH_SHORT).show();
 						BaseApplication.getInstance().setObj(object);
-						login();
+//						login();
 					}
 				});
 	}
 
-
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		handler.removeCallbacksAndMessages(null);
+	}
 }

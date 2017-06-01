@@ -1,13 +1,10 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,21 +22,19 @@ import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.bean.HuaLangShowing;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class HaveVerificationInfoActivity extends AppCompatActivity {
+public class HaveVerificationInfoActivity extends Activity {
     private HuaLangShowing.Infos infos;
     private TextView tvtheme, tvpeople, tvtimes, tvtimee, tvauthorinfo, tvauthor,
             comeback;
@@ -50,21 +45,11 @@ public class HaveVerificationInfoActivity extends AppCompatActivity {
     private HaveVerificationInfoActivity.GridViewAdapter adapter2;
     private TextView mInfoHuaLang;
     private Button btn;
-    private android.os.Handler handler=new android.os.Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if(msg.what==0){
-                adapter2.notifyDataSetChanged();
-            }
-        }
-    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_have_verification_info);
-        BaseApplication.getInstance().listSelectBitmaps.clear();
-        ExitApplication.getInstance().addActivity(this);
         infos = (HuaLangShowing.Infos) getIntent().getSerializableExtra("info");
         lin = (NoScrollGridView) findViewById(R.id.haveverificationinfo_lin);
         tvtheme = (TextView) findViewById(R.id.haveverificationinfo_theme);
@@ -84,7 +69,7 @@ public class HaveVerificationInfoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if ( BaseApplication.getInstance().listSelectBitmaps.get(position) != null&& BaseApplication.getInstance().listSelectBitmaps.size() == list.size()) {
+                if (list.get(position) != null) {
                     Intent intent = new Intent(HaveVerificationInfoActivity.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -160,26 +145,8 @@ public class HaveVerificationInfoActivity extends AppCompatActivity {
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-                    .into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                            imageView.setImageBitmap(bitmap);
-                            BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
+                    .into(imageView);
 
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.error);
-                        }
-
-                        @Override
-                        public void onPrepareLoad(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.downing);
-
-                        }
-                    });
-            handler.sendEmptyMessage(0);
             return imageView;
         }
     }

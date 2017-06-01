@@ -26,7 +26,6 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 
 import java.util.ArrayList;
@@ -72,7 +71,6 @@ public class HuaLangSerchActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_hua_lang_serch);
-        ExitApplication.getInstance().addActivity(this);
         et = (EditText) findViewById(R.id.hualangserch_et);
         comeback = (TextView) findViewById(R.id.comeback);
         BaseApplication.getInstance().setInitflag(false);
@@ -136,8 +134,8 @@ public class HuaLangSerchActivity extends Activity {
 
     private void init() {
 
-        JSONObject object = BaseApplication.getInstance().getObj();
-        if (null==object||null == object.getString("result")) {
+
+//        if (null==object||null == object.getString("result")) {
             hu.send(HttpMethod.POST, HttpApi.ip + HttpApi.getallhualangname,
                     new RequestCallBack<String>() {
 
@@ -152,24 +150,23 @@ public class HuaLangSerchActivity extends Activity {
                             // TODO Auto-generated method stub
                             JSONObject object = JSON.parseObject(arg0.result,
                                     JSONObject.class);
-                            Toast.makeText(HuaLangSerchActivity.this, "更新数据完成！", Toast.LENGTH_SHORT).show();
-                            BaseApplication.getInstance().setObj(object);
+                          //  Toast.makeText(HuaLangSerchActivity.this, "更新数据完成！", Toast.LENGTH_SHORT).show();
+                          //  BaseApplication.getInstance().setObj(object);
+                            if (object.getString("result").equals("1")) {
+                                array = object.getJSONArray("infos");
+                                for (int i = 0; i < array.size(); i++) {
+                                    JSONObject jsonObject = array.getJSONObject(i);
+                                    list.add(jsonObject.getString("name"));
+                                    hm.put(jsonObject.getString("name"), jsonObject.getString("id"));
+                                }
+                            } else {
+                                Toast.makeText(HuaLangSerchActivity.this, "无数据！", Toast.LENGTH_LONG).show();
+                            }
 
                         }
                     });
-        }
-        object = BaseApplication.getInstance().getObj();
-        if (object.getString("result").equals("1")) {
-            array = object.getJSONArray("infos");
-            for (int i = 0; i < array.size(); i++) {
-                JSONObject jsonObject = array.getJSONObject(i);
-                list.add(jsonObject.getString("name"));
-                hm.put(jsonObject.getString("name"), jsonObject.getString("id"));
-
-            }
-        } else {
-            Toast.makeText(HuaLangSerchActivity.this, "无数据！", Toast.LENGTH_LONG).show();
-        }
+//        }
+        JSONObject  object = BaseApplication.getInstance().getObj();
 
 
     }

@@ -1,40 +1,29 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.reeching.bean.ZhanlanBean;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class HaveReportedActivity extends AppCompatActivity {
+public class HaveReportedActivity extends Activity {
     private ZhanlanBean.Infos infos;
     private TextView tvtheme, tvpeople, tvtimes, tvtimee, tvauthor, tvauthorinfo,
             comeback;
@@ -58,10 +47,7 @@ public class HaveReportedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_have_reported);
-
-        ExitApplication.getInstance().addActivity(this);
         infos = (ZhanlanBean.Infos) getIntent().getSerializableExtra("info");
-        BaseApplication.getInstance().listSelectBitmaps.clear();
         lin = (NoScrollGridView) findViewById(R.id.havereportedinfo_lin);
         tvtheme = (TextView) findViewById(R.id.havereportedinfo_theme);
         tvpeople = (TextView) findViewById(R.id.havereportedinfo_people);
@@ -87,7 +73,7 @@ public class HaveReportedActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if (BaseApplication.getInstance().listSelectBitmaps.get(position) != null && BaseApplication.getInstance().listSelectBitmaps.size() == list.size()) {
+                if (list.get(position) != null ) {
                     Intent intent = new Intent(HaveReportedActivity.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -172,28 +158,7 @@ public class HaveReportedActivity extends AppCompatActivity {
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-                    .into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                            imageView.setImageBitmap(bitmap);
-
-                            // BimpHandler.listSelectBitmap.put(position, bitmap);
-                            BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.error);
-
-                        }
-
-                        @Override
-                        public void onPrepareLoad(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.downing);
-
-
-                        }
-                    });
+                    .into(imageView);
             handler.sendEmptyMessage(0);
             return imageView;
         }

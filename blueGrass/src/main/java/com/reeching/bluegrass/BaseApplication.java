@@ -1,20 +1,17 @@
 package com.reeching.bluegrass;
 
 import android.app.Application;
-import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSONObject;
 import com.reeching.bean.AllHualangInfo.Infos;
-import com.reeching.utils.CrashHandler;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class    BaseApplication extends Application {
+public class BaseApplication extends Application {
     private static BaseApplication application;
     private List<Infos> info;
     private String loginName;
@@ -24,17 +21,17 @@ public class    BaseApplication extends Application {
     private String id;
     private JSONObject obj;
     private String quanxian = "上报用户";
-    public  HashMap<Integer, Bitmap> listSelectBitmaps ;
+
 
     @Override
     public void onCreate() {
         // TODO Auto-generated method stub
         super.onCreate();
         application = this;
-        listSelectBitmaps = new HashMap();
+
         info = new ArrayList<Infos>();
-       CrashHandler handler = CrashHandler.getInstance();
-       handler.init(getApplicationContext()); //在Appliction里面设置我们的异常处理器为UncaughtExceptionHandler处理器
+//       CrashHandler handler = CrashHandler.getInstance();
+//       handler.init(getApplicationContext()); //在Appliction里面设置我们的异常处理器为UncaughtExceptionHandler处理器
         final PushAgent mPushAgent = PushAgent.getInstance(this);
         //注册推送服务，每次调用register方法都会回调该接口
         mPushAgent.register(new IUmengRegisterCallback() {

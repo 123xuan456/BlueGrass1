@@ -20,24 +20,25 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.activity.HomeActivity;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.reeching.utils.SPUtil;
+import com.reeching.view.LoadingDiaLog;
 
 public class LoginActivity extends Activity {
     private Button btn;
     private EditText etname, etcode;
+    private LoadingDiaLog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
-        ExitApplication.getInstance().addActivity(this);
         btn = (Button) findViewById(R.id.login_userbtn);
         etcode = (EditText) findViewById(R.id.login_usercode);
         etname = (EditText) findViewById(R.id.login_username);
-
+        dialog = new LoadingDiaLog(this);
+        dialog.setCanceledOnTouchOutside(false);
         btn.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -46,6 +47,7 @@ public class LoginActivity extends Activity {
                         ||etname.getText()==null||etcode.getText()==null) {
                     Toast.makeText(LoginActivity.this, "请输入账号和密码", Toast.LENGTH_SHORT).show();
                 } else {
+                    dialog.show();
                     lonin();
                     btn.setEnabled(false);
                 }
@@ -94,18 +96,22 @@ public class LoginActivity extends Activity {
                             }else{
                                 BaseApplication.getInstance().setQuanxian("上报用户");
                             }
+
                             Intent intent = new Intent(LoginActivity.this,
                                     HomeActivity.class);
                             startActivity(intent);
                             LoginActivity.this.finish();
+                            dialog.dismiss();
                         } else if (jsonObject.getString("result").equals("0")) {
                             Toast.makeText(LoginActivity.this, "用户不存在！", Toast.LENGTH_SHORT)
                                     .show();
                             btn.setEnabled(true);
+                           dialog.dismiss();
                         } else {
                             Toast.makeText(LoginActivity.this, "账户密码不匹配！", Toast.LENGTH_SHORT)
                                     .show();
                             btn.setEnabled(true);
+                            dialog.dismiss();
                         }
 
                     }
@@ -117,7 +123,6 @@ public class LoginActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
             LoginActivity.this.finish();
-            ExitApplication.getInstance().exit();
         }
         return super.onKeyDown(keyCode, event);
     }

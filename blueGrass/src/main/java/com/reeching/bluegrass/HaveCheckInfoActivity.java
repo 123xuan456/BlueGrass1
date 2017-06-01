@@ -1,20 +1,14 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -22,20 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.reeching.bean.HuaLangShowing;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
 
 
-
-public class HaveCheckInfoActivity extends AppCompatActivity {
+public class HaveCheckInfoActivity extends Activity {
     private HuaLangShowing.Infos infos;
     private TextView tvtheme, tvpeople, tvtimes, tvtimee, tvauthorinfo,
             comeback;
@@ -57,8 +45,6 @@ public class HaveCheckInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_have_check_info);
-        ExitApplication.getInstance().addActivity(this);
-        BaseApplication.getInstance().listSelectBitmaps.clear();
         infos = (HuaLangShowing.Infos) getIntent().getSerializableExtra("info");
         lin = (NoScrollGridView) findViewById(R.id.havecheckinfo_lin);
         tvtheme = (TextView) findViewById(R.id.havecheckinfo_theme);
@@ -75,7 +61,7 @@ public class HaveCheckInfoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if ( BaseApplication.getInstance().listSelectBitmaps.get(position)!= null&& BaseApplication.getInstance().listSelectBitmaps.size() == list.size()) {
+                if ( list.get(position)!= null) {
                     Intent intent = new Intent(HaveCheckInfoActivity.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -145,25 +131,7 @@ public class HaveCheckInfoActivity extends AppCompatActivity {
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-                    .into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                            imageView.setImageBitmap(bitmap);
-
-                            BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
-
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.error);
-                        }
-
-                        @Override
-                        public void onPrepareLoad(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.downing);
-                        }
-                    });
+                    .into(imageView);
             handler.sendEmptyMessage(0);
             return imageView;
         }

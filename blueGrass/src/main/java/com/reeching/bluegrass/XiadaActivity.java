@@ -1,10 +1,10 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -25,7 +25,7 @@ import com.reeching.utils.HttpApi;
 
 import java.util.Calendar;
 
-public class XiadaActivity extends AppCompatActivity {
+public class XiadaActivity extends Activity {
 private TextView tvtype,tvpeople,tvtime,tvstate,tvremark;
     private String[] type = new String[] { "检查", "核查" };
     private String[] typeids = new String[] { "0", "1" };

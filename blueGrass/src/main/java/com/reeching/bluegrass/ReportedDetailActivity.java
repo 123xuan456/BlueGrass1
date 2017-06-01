@@ -1,11 +1,11 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -28,7 +28,7 @@ import com.reeching.utils.HttpApi;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReportedDetailActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class ReportedDetailActivity extends Activity implements AdapterView.OnItemClickListener {
     private ZhanLanAdapter adapter;
     private List<ZhanlanBean.Infos> infos;
     private List<ZhanlanBean.Infos> allinfos;

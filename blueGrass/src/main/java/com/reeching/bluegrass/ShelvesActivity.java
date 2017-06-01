@@ -1,9 +1,9 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,7 +25,7 @@ import com.reeching.utils.HttpApi;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShelvesActivity extends AppCompatActivity {
+public class ShelvesActivity extends Activity {
     private List<HuaLangShowing.Infos> infos;
     private List<HuaLangShowing.Infos> allinfos;
     private DeleteHuaLangAdapter adapter;

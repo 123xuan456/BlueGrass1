@@ -1,5 +1,6 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -7,13 +8,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +42,8 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.adapter.GlideLoader;
 import com.reeching.bean.HuaLangShowing;
 import com.reeching.utils.BitmapUtils;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 import com.yancy.imageselector.ImageConfig;
 import com.yancy.imageselector.ImageSelector;
 import com.yancy.imageselector.ImageSelectorActivity;
@@ -55,7 +52,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowingInfoActivity extends AppCompatActivity {
+public class ShowingInfoActivity extends Activity {
     private HuaLangShowing.Infos infos;
     private TextView tvtheme, tvtimes, tvtimee,
             comeback;
@@ -71,7 +68,7 @@ public class ShowingInfoActivity extends AppCompatActivity {
     private EditText mZuoZheText;
     private GridAdapter adapter;
     private LinearLayout ll_popup;
-    private static CameraImage takePhoto;
+    private  CameraImage takePhoto;
     private RadioGroup mGroupDismissTrue;
     private ArrayList<String> pathPhoto = new ArrayList<>();
     private TextView mButtonDismiss;
@@ -79,8 +76,8 @@ public class ShowingInfoActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private String id;
     private Button btnalter, btnxiada;
-    private static ArrayList<String> mPhotoNum = new ArrayList<>();
-    private static Boolean ispixel = false, isPhote = false;
+    private  ArrayList<String> mPhotoNum = new ArrayList<>();
+    private  Boolean ispixel = false, isPhote = false;
     public Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -131,8 +128,6 @@ public class ShowingInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_showing_info);
-        ExitApplication.getInstance().addActivity(this);
-        BaseApplication.getInstance().listSelectBitmaps.clear();
         BimpHandler.tempSelectBitmap.clear();
         btnalter = (Button) findViewById(R.id.showinginfo_rest);
         btnxiada = (Button) findViewById(R.id.showinginfo_xiada);
@@ -163,7 +158,7 @@ public class ShowingInfoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if ( BaseApplication.getInstance().listSelectBitmaps.get(position) != null&& BaseApplication.getInstance().listSelectBitmaps.size() == list.size()) {
+                if ( list.get(position) != null) {
                     Intent intent = new Intent(ShowingInfoActivity.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -302,6 +297,7 @@ public class ShowingInfoActivity extends AppCompatActivity {
         public GridViewAdapter(Context context, List<String> lists) {
             this.context = context;
             this.lists = lists;
+
         }
 
         @Override
@@ -332,33 +328,14 @@ public class ShowingInfoActivity extends AppCompatActivity {
             } else {
                 imageView = (ImageView) convertView;
             }
-            Picasso.with(ShowingInfoActivity.this)
+            Picasso.with(BaseApplication.getInstance())
                     .load(HttpApi.picip + list)
                     .resize(900, 900)
                     .placeholder(R.drawable.downing)              //添加占位图片
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-                    .into(new Target() {
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                            imageView.setImageBitmap(bitmap);
-                            BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
-
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.error);
-                        }
-
-                        @Override
-                        public void onPrepareLoad(Drawable drawable) {
-                            imageView.setImageResource(R.drawable.downing);
-
-                        }
-                    });
-            mHandler.sendEmptyMessage(11);
+                    .into(imageView);
 
             return imageView;
         }
@@ -537,9 +514,9 @@ public class ShowingInfoActivity extends AppCompatActivity {
                 }
                 pathPhoto.clear();
                 pathPhoto.addAll(pathList);
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
                         Message obtainAblum = Message.obtain();
                         obtainAblum.what = 199;
                         Bundle bundle = new Bundle();
@@ -548,8 +525,8 @@ public class ShowingInfoActivity extends AppCompatActivity {
                         bundle.putInt("pixel", requestCode);
                         obtainAblum.setData(bundle);
                         mHandler.sendMessage(obtainAblum);
-                    }
-                }).start();
+//                    }
+//                }).start();
 
             }
         }
@@ -637,13 +614,22 @@ public class ShowingInfoActivity extends AppCompatActivity {
         ImageSelector.open(ShowingInfoActivity.this, imageConfig);   // 开启图片选择器
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            finish();
+//           // System.gc();
+//            BimpHandler.tempSelectBitmap.clear();
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            System.gc();
-            BimpHandler.tempSelectBitmap.clear();
-        }
-        return super.onKeyDown(keyCode, event);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BimpHandler.tempSelectBitmap.clear();
+        mHandler.removeCallbacksAndMessages(null);
+        Log.d("dd","destroy");
     }
 }

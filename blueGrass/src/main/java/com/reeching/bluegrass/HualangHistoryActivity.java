@@ -27,7 +27,6 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import com.reeching.adapter.HistoryAdapter;
 import com.reeching.bean.HualangHistory;
 import com.reeching.bean.HualangHistory.Infos;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 
 import java.util.ArrayList;
@@ -60,7 +59,6 @@ public class HualangHistoryActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_hualang_history);
-		ExitApplication.getInstance().addActivity(this);
 		comeback = (TextView) findViewById(R.id.comeback);
 		mTextNull = (TextView) findViewById(R.id.fragment_waitforhecha_tv);
 		mLV_AfterSalesInfor = (PullToRefreshListView) findViewById(R.id.Hualang_history_lv);

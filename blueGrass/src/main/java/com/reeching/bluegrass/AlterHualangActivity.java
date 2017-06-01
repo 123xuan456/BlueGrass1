@@ -1,7 +1,6 @@
 package com.reeching.bluegrass;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -17,7 +16,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -27,9 +25,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -84,7 +80,6 @@ import com.reeching.adapter.GlideLoader;
 import com.reeching.bean.AlterHualngBean;
 import com.reeching.bluegrass.MyOrientaionListener.OnOrientationListener;
 import com.reeching.utils.BitmapUtils;
-import com.reeching.utils.ExitApplication;
 import com.reeching.utils.HttpApi;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -201,8 +196,6 @@ public class AlterHualangActivity extends Activity {
         SDKInitializer.initialize(this.getApplicationContext());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_alter_hualang);
-        ExitApplication.getInstance().addActivity(this);
-        BaseApplication.getInstance().listSelectBitmaps.clear();
         BimpHandler.tempSelectBitmap.clear();
         BimpHandler.tempAddPhoto.clear();
         btn = (Button) findViewById(R.id.alter_hualang_alter);
@@ -507,7 +500,7 @@ public class AlterHualangActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 执行浏览照片操作
-                if ( BaseApplication.getInstance().listSelectBitmaps.get(position) != null) {
+                if ( list.get(position) != null) {
                     Intent intent = new Intent(AlterHualangActivity.this,
                             PicViewActivity.class);
                     intent.putExtra("position", "1");
@@ -1014,26 +1007,7 @@ public class AlterHualangActivity extends Activity {
                     .error(R.drawable.error)
                     .config(Bitmap.Config.RGB_565)
                     .centerInside()
-            .into(new Target() {
-                @Override
-                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                    imageView.setImageBitmap(bitmap);
-                    BaseApplication.getInstance().listSelectBitmaps.put(position, bitmap);
-
-
-                }
-
-                @Override
-                public void onBitmapFailed(Drawable drawable) {
-                    imageView.setImageResource(R.drawable.error);
-
-                }
-
-                @Override
-                public void onPrepareLoad(Drawable drawable) {
-                    imageView.setImageResource(R.drawable.downing);
-                }
-            });
+            .into(imageView);
             handler.sendEmptyMessage(11);
             return imageView;
         }

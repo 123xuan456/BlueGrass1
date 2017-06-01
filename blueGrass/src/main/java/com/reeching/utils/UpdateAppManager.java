@@ -83,7 +83,7 @@ public class UpdateAppManager {
 	 * 显示提示更新对话框
 	 */
 	private void showNoticeDialog() {
-		new AlertDialog.Builder(context).setTitle("软件版本更新").setMessage(message)
+		AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("软件版本更新").setMessage(message)
 				.setPositiveButton("下载", new OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -96,7 +96,12 @@ public class UpdateAppManager {
 						dialog.dismiss();
 						System.exit(0);
 					}
-				}).create().show();
+				});
+		builder.setCancelable(false);//设置不能消失
+		builder.create();
+		builder.show();
+
+
 	}
 
 	/**

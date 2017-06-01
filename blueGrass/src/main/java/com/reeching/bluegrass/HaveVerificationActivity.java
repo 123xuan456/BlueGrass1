@@ -1,10 +1,10 @@
 package com.reeching.bluegrass;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -29,7 +29,7 @@ import com.reeching.utils.HttpApi;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HaveVerificationActivity extends AppCompatActivity {
+public class HaveVerificationActivity extends Activity {
     private List<HuaLangShowing.Infos> lists;
     private List<HuaLangShowing.Infos> alllists;
     private HaveCheckAdapter adapter;
